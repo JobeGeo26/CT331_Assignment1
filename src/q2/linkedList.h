@@ -17,5 +17,20 @@ listElement* insertAfter(listElement* after, char* data, size_t size);
 //Delete the element after the given el
 void deleteAfter(listElement* after);
 
+//Returns the number of elements in a linked list
+int length(listElement* list);
+
+//Push a new element onto the head of a list.
+void push(listElement** list, char* data, size_t size);
+
+//Pop an element from the head of a list.
+listElement* pop(listElement** list);
+
+//Enqueue a new element onto the head of the list.
+void enqueue(listElement** list, char *data, size_t size);
+
+//Dequeue an element from the tail of the list.
+listElement* dequeue(listElement* list);
+
 
 #endif
