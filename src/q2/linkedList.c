@@ -60,48 +60,52 @@ void deleteAfter(listElement* after) {
 	free(delete);
 }
 
-// Returns the number of elements in a linked list.
+// returns the number of elements in this linked list.
 int length(listElement* list) {
-	int counter = 0;
+	int lengthCount = 0;
 	listElement* temp = list;
 	while (temp != NULL) {
+
 		temp = temp->next;
-		counter++;
+		
+		lengthCount++;
 	}
-	return counter;
+	return lengthCount;
 }
 
-// Push a new element onto the head of a list.
+// push a new element onto the head of a list.
 void push(listElement** list, char *data, size_t size) {
-	listElement* node = createEl(data, size);
-	node->next = *list;
-	*list = node;
+	listElement* newElement = createEl(data, size);
+
+	newElement->next = *list;
+	*list = newElement;
 }
 
-// Pop an element from the head of a list.
+// pop an element from the head of a list.
 listElement* pop(listElement** list) {
 	if (*list != NULL) {
-		listElement* node = (*list)->next;
+		listElement* element = (*list)->next;
 		*list = (*list)->next;
-		return node;
+		return element;
 	}
 	return *list;
 }
 
-//Enqueue a new element onto the head of the list.
+//enqueue a new element onto the head of the list.
 void enqueue(listElement** list, char* data, size_t size) {
 	push(list, data, size);
 }
 
-//Dequeue an element from the tail of the list.
+//dequeue an element from the tail of the list.
+
 listElement* dequeue(listElement* list) {
 	listElement* temp = list;
 	while ((temp->next)->next != NULL)
 	{
 		temp = temp->next;
 	}
-	listElement* last = temp->next;
+	listElement* tail = temp->next;
 	temp->next = NULL;
-	return last;
+	return tail;
 }
 

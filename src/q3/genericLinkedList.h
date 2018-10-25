@@ -6,7 +6,7 @@ typedef void(*printFn)(void* data);
 typedef struct genericlistElementStruct {
 	void* data;
 	size_t size;
-	printFn print;
+	printFn printFunction;
 	struct genericlistElementStruct* next;
 } genericlistElement;
 
@@ -24,32 +24,33 @@ genericlistElement* insertAfter(genericlistElement* after, void* data, size_t si
 //Delete the element after the given el
 void deleteAfter(genericlistElement* after);
 
-//Returns the number of elements in a linked list
+//returns the number of elements in the linked list
 int length(genericlistElement* list);
 
-//Push a new element onto the head of a list.
+//push a new element onto the head of a list.
 void push(genericlistElement** list, void* data, size_t size, printFn print);
 
-//Pop an element from the head of a list.
+//pop an element from the head of a list.
 genericlistElement* pop(genericlistElement** head);
 
-//Enqueue a new element onto the head of the list.
+//enqueue a new element onto the head of the list.
 void enqueue(genericlistElement** list, void* data, size_t size, printFn print);
 
-//Dequeue an element from the tail of the list.
+//dequeue an element from the tail of the list.
 genericlistElement* dequeue(genericlistElement* list);
 
-//Prints out an integer element
+//prints out an integer element
 void printInt(void* data);
-
-//Prints out a float element
-void printFloat(void* data);
-
-//Prints out a char element
 void printChar(void* data);
 
-//Prints out a string element
+//prints out a string element
 void printStr(void* data);
+
+//prints out a float element
+void printFloat(void* data);
+
+
+
 
 
 
